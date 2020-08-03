@@ -25,7 +25,7 @@ public class BowlingGameTest {
     }
 
     @Test
-    void should_return__when_caculate_score_given_5_strike_and_5_spare(){
+    void should_return_210_when_caculate_score_given_5_strike_and_5_spare(){
         //Given
         int[] line = {10, 10, 10, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
         //When
