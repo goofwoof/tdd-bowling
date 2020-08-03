@@ -36,7 +36,7 @@ public class BowlingGameTest {
 
 
     @Test
-    void should_return__when_caculate_score_given_no_strike_and_no_spare(){
+    void should_return_60_when_caculate_score_given_no_strike_and_no_spare(){
         //Given
         int[] line = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
         //When
