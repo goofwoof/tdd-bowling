@@ -15,10 +15,16 @@ public class BowlingGame {
     public int caculateScore(){
         int frame = 1;
         int score = 0;
-        for (int throwFlag = 0; throwFlag < line.length; throwFlag++) {
+        for (int throwFlag = 0; throwFlag < line.length;) {
             if(line[throwFlag] == STRIKE){
                 score +=  line[throwFlag] + line[throwFlag+1] + line[throwFlag+2];
                 frame++;
+                throwFlag++;
+            }
+            else if(line[throwFlag] + line[throwFlag+1] == SPARE){
+                score +=  line[throwFlag] + line[throwFlag+1] + line[throwFlag+2];
+                frame++;
+                throwFlag += 2;
             }
             if(frame > FRAME_MAX){
                 break;

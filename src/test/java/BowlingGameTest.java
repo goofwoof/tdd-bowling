@@ -13,4 +13,14 @@ public class BowlingGameTest {
         //Then
         assertEquals(300, score);
     }
+
+    @Test
+    void should_return__when_caculate_score_given_21_spare(){
+        //Given
+        int[] line = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
+        //When
+        int score = new BowlingGame(line).caculateScore();
+        //Then
+        assertEquals(150, score);
+    }
 }
