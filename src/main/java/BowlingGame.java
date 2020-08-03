@@ -1,9 +1,5 @@
-import java.util.Arrays;
-import java.util.function.IntConsumer;
-
 public class BowlingGame {
     private final int FRAME_MAX = 10;
-    private final int SCORE_MAX = 3;
     private final int STRIKE = 10;
     private final int SPARE = 10;
     int[] line;
@@ -12,26 +8,38 @@ public class BowlingGame {
         this.line = line;
     }
 
-    public int caculateScore(){
+    public int caculateScore() throws Exception {
         int frame = 1;
         int score = 0;
-        for (int throwFlag = 0; throwFlag < line.length;) {
+        boolean cacuEndFlag = false;
+        for (int throwFlag = 0; throwFlag < line.length; throwFlag++) {
+            int frameScore = line[throwFlag] + line[throwFlag + 1];
+            score += frameScore;
+
             if(line[throwFlag] == STRIKE){
-                score +=  line[throwFlag] + line[throwFlag+1] + line[throwFlag+2];
-                frame++;
+                score += line[throwFlag + 2];
+                if(throwFlag + 3 == line.length){
+                    cacuEndFlag = true;
+                }
+            }
+            else if(frameScore == SPARE){
+                score +=  line[throwFlag + 2];
+                if(throwFlag + 3 == line.length){
+                    cacuEndFlag = true;
+                }
                 throwFlag++;
             }
-            else if(line[throwFlag] + line[throwFlag+1] == SPARE){
-                score +=  line[throwFlag] + line[throwFlag+1] + line[throwFlag+2];
-                frame++;
-                throwFlag += 2;
-            }
             else{
-                score +=  line[throwFlag] + line[throwFlag+1];
-                frame++;
-                throwFlag += 2;
+                if(throwFlag + 2 == line.length){
+                    cacuEndFlag = true;
+                }
+                throwFlag++;
             }
+            frame++;
             if(frame > FRAME_MAX){
+                if(!cacuEndFlag){
+                    throw new Exception("given over throw");
+                }
                 break;
             }
         }
