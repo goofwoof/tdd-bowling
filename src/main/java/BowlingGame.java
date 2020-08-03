@@ -30,6 +30,9 @@ public class BowlingGame {
                 throwFlag++;
             }
             else{
+                if(line[throwFlag+1] == STRIKE){
+                    throw new Exception("given impossible line");
+                }
                 if(throwFlag + 2 == line.length){
                     cacuEndFlag = true;
                 }

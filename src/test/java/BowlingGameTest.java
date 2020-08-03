@@ -70,4 +70,19 @@ public class BowlingGameTest {
         }
         fail("expected for GrammarException of The vertex args is lack.");
     }
+
+    @Test
+    void should_return_error_when_caculate_score_given_impossible_line(){
+        //Given
+        int[] line = {3, 10, 3, 3, 5, 5, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+        //When
+        try {
+            int score = new BowlingGame(line).caculateScore();
+        } catch (Exception e) {
+            //Then
+            assertEquals("given impossible line", e.getMessage());
+            return;
+        }
+        fail("expected for GrammarException of The vertex args is lack.");
+    }
 }
