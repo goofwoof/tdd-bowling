@@ -33,4 +33,15 @@ public class BowlingGameTest {
         //Then
         assertEquals(210, score);
     }
+
+
+    @Test
+    void should_return__when_caculate_score_given_no_strike_and_no_spare(){
+        //Given
+        int[] line = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+        //When
+        int score = new BowlingGame(line).caculateScore();
+        //Then
+        assertEquals(60, score);
+    }
 }

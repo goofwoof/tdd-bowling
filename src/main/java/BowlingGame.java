@@ -26,6 +26,11 @@ public class BowlingGame {
                 frame++;
                 throwFlag += 2;
             }
+            else{
+                score +=  line[throwFlag] + line[throwFlag+1];
+                frame++;
+                throwFlag += 2;
+            }
             if(frame > FRAME_MAX){
                 break;
             }
